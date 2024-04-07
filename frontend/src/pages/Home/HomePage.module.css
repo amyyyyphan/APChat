@@ -1,0 +1,9 @@
+.container {
+  text-align: center;
+  padding: 30px;
+}
+
+.selectPrompt {
+  text-decoration: none;
+  font-size: 20px;
+}
