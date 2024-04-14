@@ -22,6 +22,13 @@ const CreateUserTagPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "SET_USER_TAG", payload: userTag });
+
+    if (currentChatroom) {
+      const path = "/chat/" + currentChatroom;
+      navigate(path);
+    } else {
+      navigate("/");
+    }
   };
 
   return (

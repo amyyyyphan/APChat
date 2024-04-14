@@ -1,0 +1,28 @@
+.topBar {
+  background-color: #090c9b;
+  padding: 5px 5px 10px 5px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0px;
+  color: white;
+  text-align: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.topic {
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.exit {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  padding: 5px 33px;
+}
