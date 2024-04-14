@@ -4,7 +4,6 @@ import TopicButton from "../../components/TopicButton/TopicButton";
 import styles from "./HomePage.module.css";
 
 const HomePage = () => {
-
     return (
       <div className={styles.container}>
         <h1>APChat</h1>
