@@ -1,0 +1,45 @@
+.userMessageContainer {
+  max-width: 60%;
+  margin: 10px;
+  margin-left: auto;
+}
+
+.userMessageSender {
+  margin-bottom: 5px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.userMessageContent {
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: auto;
+  background-color: #4062bb;
+  color: white;
+  word-wrap: break-word;
+}
+
+.otherMessageContainer {
+  max-width: 60%;
+  margin: 10px;
+  margin-right: auto;
+}
+
+.otherMessageSender {
+  margin-bottom: 5px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.otherMessageContent {
+  width: fit-content;
+  max-width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: auto;
+  background-color: #d3d3d3;
+  color: black;
+  word-wrap: break-word;
+}
