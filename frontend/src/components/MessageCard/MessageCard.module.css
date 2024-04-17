@@ -43,3 +43,15 @@
   color: black;
   word-wrap: break-word;
 }
+
+.joinMessage {
+  max-width: 60%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.leaveMessage {
+  max-width: 60%;
+  margin: 10px auto;
+  text-align: center;
+}
