@@ -6,7 +6,7 @@ import axios from "axios";
 import config from "../../config";
 
 import TopBar from "../../components/TopBar/TopBar";
-import ChatMessageCard from "../../components/ChatMessageCard/ChatMessageCard";
+import MessageCard from "../../components/MessageCard/MessageCard";
 
 import { TOPICS, MESSAGE_TYPE } from "../../constants";
 
@@ -30,6 +30,13 @@ const FoodChatroomPage = () => {
           chatMessage,
         ]);
       });
+
+      axios.post(`${config.apiUrl}/chat`, {
+        type: MESSAGE_TYPE.connect,
+        topic: TOPICS.food,
+        sender: userTag,
+        content: "",
+      })
     },
   });
 
@@ -40,8 +47,22 @@ const FoodChatroomPage = () => {
 
     client.activate();
 
-    return () => {
+    const handleLeave = () => {
       client.deactivate();
+      axios.post(`${config.apiUrl}/chat`, {
+        type: MESSAGE_TYPE.disconnect,
+        topic: TOPICS.food,
+        sender: userTag,
+        content: "",
+      })
+      console.log("Disconnected");
+    }
+
+    window.addEventListener("beforeunload", handleLeave);
+
+    return () => {
+      window.removeEventListener("beforeunload", handleLeave);
+      handleLeave();
     }
   }, [userTag]);
   
@@ -65,7 +86,7 @@ const FoodChatroomPage = () => {
       <TopBar topic={TOPICS.food}/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (
-          <ChatMessageCard message={message} />
+          <MessageCard message={message} />
         ))}
       </div>
       <div className={styles.messageInput}>
