@@ -4,38 +4,52 @@
 }
 
 .mainContainer {
-  width: 90%;
+  width: 95%;
   margin: auto;
   padding-top: 50px;
-  padding-bottom: 60px;
+  padding-bottom: 70px;
 }
 
-.messageInput {
+.messageInputContainer {
   position: fixed;
   width: 100%;
-  bottom: 0px;
-  display: flex;
-  background-color: #f5f5f5;
-  align-items: center;
+  background-color: white;
+  border-top: 1px solid;
+  border-color: #dadde1;
   bottom: 0;
 }
 
+.messageInputForm {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
 .inputField {
-  width: 80%;
-  margin: 5px;
-  height: 40px;
+  width: 85%;
+  margin: 10px 5px;
+  padding: 10px;
   font-size: 18px;
   border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  outline: none;
 }
 
 .sendButton {
-  width: 20%;
-  margin: 5px;
-  height: 46px;
+  width: 15%;
+  margin: 10px 5px;
+  padding: 10px;
   font-size: 18px;
   font-weight: bold;
-  border: none;
   border-radius: 5px 5px 5px 5px;
-  background-color: #3066be;
-  color: #f5f5f5;
+  border-color: #4062bb;
+  border-width: 1px;
+  background-color: #4062bb;
+  color: white;
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
