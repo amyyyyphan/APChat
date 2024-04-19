@@ -66,7 +66,8 @@ const FoodChatroomPage = () => {
     }
   }, [userTag]);
   
-  const handleClick = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     axios.post(`${config.apiUrl}/chat`, {
       type: MESSAGE_TYPE.chat,
       topic: TOPICS.food,
@@ -89,15 +90,17 @@ const FoodChatroomPage = () => {
           <MessageCard message={message} />
         ))}
       </div>
-      <div className={styles.messageInput}>
-        <input
-          required
-          className={styles.inputField}
-          placeholder="Type a message"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-        />
-        <button className={styles.sendButton} onClick={handleClick}>Send</button>
+      <div className={styles.messageInputContainer}>
+        <form className={styles.messageInputForm} onSubmit={handleSubmit}>
+          <input
+            required
+            className={styles.inputField}
+            placeholder="Type a message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
+          <button className={styles.sendButton} disabled={!message}>Send</button>
+        </form>
       </div>
     </div>
   )
