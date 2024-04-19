@@ -1,31 +1,37 @@
 .topBar {
-  background-color: #090c9b;
-  padding: 5px 5px 10px 5px;
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
+  background-color: #4062bb;
   position: fixed;
   top: 0;
   width: 100%;
 }
 
+.topBarContent {
+  width: 95%;
+  padding: 10px;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
 .title {
-  margin: 0px;
   color: white;
-  text-align: left;
   font-size: 28px;
   font-weight: bold;
+  text-decoration: none;
 }
 
 .topic {
   color: white;
   font-size: 28px;
   font-weight: bold;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .exit {
   text-decoration: none;
   color: white;
   font-size: 20px;
-  padding: 5px 33px;
 }
