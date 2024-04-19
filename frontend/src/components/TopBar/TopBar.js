@@ -12,9 +12,11 @@ const TopBar = ({ topic }) => {
 
   return (
     <div className={styles.topBar}>
-      <h1 className={styles.title}>APChat</h1>
-      <div className={styles.topic}>{topic}</div>
-      <Link className={styles.exit} to="/" onClick={handleClick}>Leave</Link>
+      <div className={styles.topBarContent}>
+        <Link className={styles.title} to="/" onClick={handleClick}>APChat</Link>
+        <div className={styles.topic}>{topic}</div>
+        <Link className={styles.exit} to="/" onClick={handleClick}>Leave</Link>
+      </div>
     </div>
   )
 }
