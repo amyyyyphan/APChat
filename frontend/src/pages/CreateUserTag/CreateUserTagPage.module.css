@@ -3,6 +3,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 1;
 }
 
 .topBarContent {
@@ -19,14 +20,20 @@
   text-decoration: none;
 }
 
+.formContainer {
+  position: relative;
+}
+
 .userTagForm {
-  width: 40%;
+  width: 420px;
   text-align: center;
   padding: 30px;
-  margin: auto;
-  position: relative;
-  transform: translateY(30%);
-  background-color: bisque;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  background-color: white;
+  box-shadow: 0 0 15px rgb(220, 220, 220);
 }
 
 .enterUserTagPrompt {
@@ -36,10 +43,11 @@
 
 .userTagInput {
   width: 90%;
-  margin: 15px;
-  padding: 5px 5px;
-  height: 40px;
+  margin: 15px auto;
+  padding: 10px;
   font-size: 18px;
+  border-width: 1px;
+  border-radius: 5px 5px 5px 5px;
 }
 
 .userTagExplanation {
@@ -52,12 +60,11 @@
 .startChattingButton {
   border: none;
   border-radius: 5px 5px 5px 5px;
+  padding: 10px 20px;
   text-align: center;
   font-size: 18px;
   font-weight: bold;
-  width: 50%;
-  height: 40px;
   margin: 50px 15px 15px 15px;
-  background-color: #00adb5;
-  color: #f5f5f5;
+  background-color: #4062bb;
+  color: white;
 }

@@ -38,19 +38,22 @@ const CreateUserTagPage = () => {
           <Link className={styles.title} to="/">APChat</Link>
         </div>
       </div>
-      <div className={styles.userTagForm}>
-        <form onSubmit={handleSubmit}>
-          <div className={styles.enterUserTagPrompt}>
-            <label>Enter a user tag for this session</label>
-          </div>
-          <input
-            className={styles.userTagInput}
-            placeholder="User Tag"
-            onChange={(e) => setUserTag(e.target.value)}
-          />
-          <div className={styles.userTagExplanation}>The user tag is needed to allow you and others to respond to a specific user.</div>
-          <button className={styles.startChattingButton}>Start Chatting</button>
-        </form>
+      <div className={styles.formContainer}>
+        <div className={styles.userTagForm}>
+          <form onSubmit={handleSubmit}>
+            <div className={styles.enterUserTagPrompt}>
+              <label>Enter a user tag for this session</label>
+            </div>
+            <input
+              required
+              className={styles.userTagInput}
+              placeholder="User Tag"
+              onChange={(e) => setUserTag(e.target.value)}
+            />
+            <div className={styles.userTagExplanation}>The user tag is needed to allow you and others to respond to a specific user.</div>
+            <button className={styles.startChattingButton}>Start Chatting</button>
+          </form>
+        </div>
       </div>
     </div>
   )
