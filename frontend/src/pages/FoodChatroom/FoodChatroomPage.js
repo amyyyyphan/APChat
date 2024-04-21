@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { Client } from "@stomp/stompjs";
 import axios from "axios";
 import config from "../../config";
@@ -13,8 +12,6 @@ import { TOPICS, MESSAGE_TYPE } from "../../constants";
 import styles from "./FoodChatroomPage.module.css";
 
 const FoodChatroomPage = () => {
-  const navigate = useNavigate();
-
   const userTag = useSelector((state) => state.userTag);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -41,10 +38,6 @@ const FoodChatroomPage = () => {
   });
 
   useEffect(() => {
-    if (!userTag) {
-      navigate("/create-user-tag");
-    }
-
     client.activate();
 
     const handleLeave = () => {
@@ -64,7 +57,7 @@ const FoodChatroomPage = () => {
       window.removeEventListener("beforeunload", handleLeave);
       handleLeave();
     }
-  }, [userTag]);
+  }, []);
   
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,7 +76,7 @@ const FoodChatroomPage = () => {
   }
 
   return (
-    <div className={styles.container}>
+    <div>
       <TopBar topic={TOPICS.food}/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (

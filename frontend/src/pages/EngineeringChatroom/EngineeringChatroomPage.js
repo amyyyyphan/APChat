@@ -9,9 +9,9 @@ import MessageCard from "../../components/MessageCard/MessageCard";
 
 import { TOPICS, MESSAGE_TYPE } from "../../constants";
 
-import styles from "./ComputerScienceChatroomPage.module.css";
+import styles from "./EngineeringChatroomPage.module.css";
 
-const ComputerScienceChatroomPage = () => {
+const EngineeringChatroomPage = () => {
   const userTag = useSelector((state) => state.userTag);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -19,7 +19,7 @@ const ComputerScienceChatroomPage = () => {
   const client = new Client({
     brokerURL: config.webSocketUrl,
     onConnect: () => {
-      client.subscribe("/chat/computer-science", (frame) => {
+      client.subscribe("/chat/engineering", (frame) => {
         const chatMessage = JSON.parse(frame.body);
         console.log(chatMessage);
         setMessages(messages => [
@@ -30,7 +30,7 @@ const ComputerScienceChatroomPage = () => {
 
       axios.post(`${config.apiUrl}/chat`, {
         type: MESSAGE_TYPE.connect,
-        topic: TOPICS.computerScience,
+        topic: TOPICS.engineering,
         sender: userTag,
         content: "",
       })
@@ -44,7 +44,7 @@ const ComputerScienceChatroomPage = () => {
       client.deactivate();
       axios.post(`${config.apiUrl}/chat`, {
         type: MESSAGE_TYPE.disconnect,
-        topic: TOPICS.computerScience,
+        topic: TOPICS.engineering,
         sender: userTag,
         content: "",
       })
@@ -63,7 +63,7 @@ const ComputerScienceChatroomPage = () => {
     e.preventDefault();
     axios.post(`${config.apiUrl}/chat`, {
       type: MESSAGE_TYPE.chat,
-      topic: TOPICS.computerScience,
+      topic: TOPICS.engineering,
       sender: userTag,
       content: message,
     })
@@ -77,7 +77,7 @@ const ComputerScienceChatroomPage = () => {
 
   return (
     <div>
-      <TopBar topic={TOPICS.computerScience}/>
+      <TopBar topic={TOPICS.engineering}/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (
           <MessageCard message={message} />
@@ -99,4 +99,4 @@ const ComputerScienceChatroomPage = () => {
   )
 }
 
-export default ComputerScienceChatroomPage;
+export default EngineeringChatroomPage;
