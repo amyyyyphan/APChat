@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import ComputerScienceChatroomPage from "./pages/ComputerScienceChatroom";
 import EngineeringChatroomPage from "./pages/EngineeringChatroom";
 import MathChatroomPage from "./pages/MathChatroom";
+import MoviesChatroomPage from "./pages/MoviesChatroom";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/chat/engineering" element={<ProtectedRoute><EngineeringChatroomPage /></ProtectedRoute>}/>
         <Route path="/chat/food" element={<ProtectedRoute><FoodChatroomPage /></ProtectedRoute>}/>
         <Route path="/chat/math" element={<ProtectedRoute><MathChatroomPage /></ProtectedRoute>}/>
+        <Route path="/chat/movies" element={<ProtectedRoute><MoviesChatroomPage /></ProtectedRoute>}/>
       </Routes>
     </div>
   );

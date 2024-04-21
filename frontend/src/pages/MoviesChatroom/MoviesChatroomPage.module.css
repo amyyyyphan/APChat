@@ -1,0 +1,50 @@
+.mainContainer {
+  width: 95%;
+  margin: auto;
+  padding-top: 55px;
+  padding-bottom: 70px;
+}
+
+.messageInputContainer {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  border-top: 1px solid;
+  border-color: #dadde1;
+  bottom: 0;
+}
+
+.messageInputForm {
+  width: 95%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+.inputField {
+  width: 85%;
+  margin: 10px 5px;
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 5px 5px 5px 5px;
+  border-width: 1px;
+  outline: none;
+}
+
+.sendButton {
+  width: 15%;
+  margin: 10px 5px;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px 5px 5px 5px;
+  border-color: #4062bb;
+  border-width: 1px;
+  background-color: #4062bb;
+  color: white;
+}
+
+.sendButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
