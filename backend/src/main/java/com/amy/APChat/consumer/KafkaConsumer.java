@@ -29,4 +29,10 @@ public class KafkaConsumer {
         template.convertAndSend("/chat/engineering", message);
     }
 
+    @KafkaListener(topics = "${kafka.topic-4}", groupId = "${kafka.consumer.group-id-4}")
+    public void mathChatListener(Message message) {
+        System.out.println("(Topic: math) " + message.getSender() + ": " + message.getContent());
+        template.convertAndSend("/chat/math", message);
+    }
+
 }

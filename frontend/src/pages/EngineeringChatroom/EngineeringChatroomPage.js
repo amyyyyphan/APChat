@@ -77,7 +77,7 @@ const EngineeringChatroomPage = () => {
 
   return (
     <div>
-      <TopBar topic={TOPICS.engineering}/>
+      <TopBar topic="Engineering"/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (
           <MessageCard message={message} />
