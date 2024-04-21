@@ -9,9 +9,9 @@ import MessageCard from "../../components/MessageCard/MessageCard";
 
 import { TOPICS, MESSAGE_TYPE } from "../../constants";
 
-import styles from "./FoodChatroomPage.module.css";
+import styles from "./MathChatroomPage.module.css";
 
-const FoodChatroomPage = () => {
+const MathChatroomPage = () => {
   const userTag = useSelector((state) => state.userTag);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
@@ -19,7 +19,7 @@ const FoodChatroomPage = () => {
   const client = new Client({
     brokerURL: config.webSocketUrl,
     onConnect: () => {
-      client.subscribe("/chat/food", (frame) => {
+      client.subscribe("/chat/math", (frame) => {
         const chatMessage = JSON.parse(frame.body);
         console.log(chatMessage);
         setMessages(messages => [
@@ -30,7 +30,7 @@ const FoodChatroomPage = () => {
 
       axios.post(`${config.apiUrl}/chat`, {
         type: MESSAGE_TYPE.connect,
-        topic: TOPICS.food,
+        topic: TOPICS.math,
         sender: userTag,
         content: "",
       })
@@ -44,7 +44,7 @@ const FoodChatroomPage = () => {
       client.deactivate();
       axios.post(`${config.apiUrl}/chat`, {
         type: MESSAGE_TYPE.disconnect,
-        topic: TOPICS.food,
+        topic: TOPICS.math,
         sender: userTag,
         content: "",
       })
@@ -63,7 +63,7 @@ const FoodChatroomPage = () => {
     e.preventDefault();
     axios.post(`${config.apiUrl}/chat`, {
       type: MESSAGE_TYPE.chat,
-      topic: TOPICS.food,
+      topic: TOPICS.math,
       sender: userTag,
       content: message,
     })
@@ -77,7 +77,7 @@ const FoodChatroomPage = () => {
 
   return (
     <div>
-      <TopBar topic="Food"/>
+      <TopBar topic="Math"/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (
           <MessageCard message={message} />
@@ -99,4 +99,4 @@ const FoodChatroomPage = () => {
   )
 }
 
-export default FoodChatroomPage;
+export default MathChatroomPage;

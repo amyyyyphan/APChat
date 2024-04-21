@@ -77,7 +77,7 @@ const ComputerScienceChatroomPage = () => {
 
   return (
     <div>
-      <TopBar topic={TOPICS.computerScience}/>
+      <TopBar topic="Computer Science"/>
       <div className={styles.mainContainer}>
         {messages.map((message) => (
           <MessageCard message={message} />
