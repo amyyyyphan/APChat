@@ -7,6 +7,7 @@ import CreateUserTagPage from "./pages/CreateUserTag";
 import FoodChatroomPage from "./pages/FoodChatroom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import ComputerScienceChatroomPage from "./pages/ComputerScienceChatroom";
+import EngineeringChatroomPage from "./pages/EngineeringChatroom";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/" element={<HomePage />}/>
         <Route path="/create-user-tag" element={<CreateUserTagPage />}/>
         <Route path="/chat/computer-science" element={<ProtectedRoute><ComputerScienceChatroomPage /></ProtectedRoute>}/>
+        <Route path="/chat/engineering" element={<ProtectedRoute><EngineeringChatroomPage /></ProtectedRoute>}/>
         <Route path="/chat/food" element={<ProtectedRoute><FoodChatroomPage /></ProtectedRoute>}/>
       </Routes>
     </div>
