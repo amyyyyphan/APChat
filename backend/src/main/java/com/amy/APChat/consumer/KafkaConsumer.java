@@ -12,9 +12,15 @@ public class KafkaConsumer {
     SimpMessagingTemplate template;
 
     @KafkaListener(topics = "${kafka.topic-1}", groupId = "${kafka.consumer.group-id-1}")
-    public void listen(Message message) {
-        System.out.println(message.getSender() + ": " + message.getContent());
+    public void foodChatListener(Message message) {
+        System.out.println("(Topic: food) " + message.getSender() + ": " + message.getContent());
         template.convertAndSend("/chat/food", message);
+    }
+
+    @KafkaListener(topics = "${kafka.topic-2}", groupId = "${kafka.consumer.group-id-2}")
+    public void computerScienceChatListener(Message message) {
+        System.out.println("(Topic: computer science) " + message.getSender() + ": " + message.getContent());
+        template.convertAndSend("/chat/computer-science", message);
     }
 
 }
