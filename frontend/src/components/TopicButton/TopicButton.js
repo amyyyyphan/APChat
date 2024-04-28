@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import styles from "./TopicButton.module.css";
 
-const TopicButton = ({ topic }) => {
+const TopicButton = ({ topic, text }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -15,7 +15,7 @@ const TopicButton = ({ topic }) => {
 
   return (
     <div>
-      <button className={styles.topicButton} onClick={handleClick}>{topic}</button>
+      <button className={styles.topicButton} onClick={handleClick}>{text}</button>
     </div>
   )
 }
