@@ -41,4 +41,10 @@ public class KafkaConsumer {
         template.convertAndSend("/chat/movies", message);
     }
 
+    @KafkaListener(topics = "${kafka.topic-6}", groupId = "${kafka.consumer.group-id-6}")
+    public void sportsChatListener(Message message) {
+        System.out.println("(Topic: sports) " + message.getSender() + ": " + message.getContent());
+        template.convertAndSend("/chat/sports", message);
+    }
+
 }
