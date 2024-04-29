@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.amy</groupId>
-	<artifactId>APChat</artifactId>
+	<artifactId>APChat-rest-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>APChat</name>
 	<description>Anonymous Real-time Chat Application</description>
