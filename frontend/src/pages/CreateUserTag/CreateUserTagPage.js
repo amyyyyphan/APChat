@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 
 import styles from "./CreateUserTagPage.module.css";
 
@@ -22,6 +23,9 @@ const CreateUserTagPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "SET_USER_TAG", payload: userTag });
+
+    const uniqueId = uuid();
+    dispatch({ type: "SET_UNIQUE_ID", payload: uniqueId });
 
     if (currentChatroom) {
       const path = "/chat/" + currentChatroom;

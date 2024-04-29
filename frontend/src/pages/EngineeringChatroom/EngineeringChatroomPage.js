@@ -13,6 +13,7 @@ import styles from "./EngineeringChatroomPage.module.css";
 
 const EngineeringChatroomPage = () => {
   const userTag = useSelector((state) => state.userTag);
+  const uniqueId = useSelector((state) => state.uniqueId);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -32,6 +33,7 @@ const EngineeringChatroomPage = () => {
         type: MESSAGE_TYPE.connect,
         topic: TOPICS.engineering,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
     },
@@ -46,6 +48,7 @@ const EngineeringChatroomPage = () => {
         type: MESSAGE_TYPE.disconnect,
         topic: TOPICS.engineering,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
       console.log("Disconnected");
@@ -65,6 +68,7 @@ const EngineeringChatroomPage = () => {
       type: MESSAGE_TYPE.chat,
       topic: TOPICS.engineering,
       sender: userTag,
+      senderId: uniqueId,
       content: message,
     })
     .then(() => {

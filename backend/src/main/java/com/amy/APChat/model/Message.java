@@ -14,5 +14,6 @@ public class Message {
     private MessageType type;
     private String topic;
     private String sender;
+    private String senderId;
     private String content;
 }

@@ -13,6 +13,7 @@ import styles from "./MathChatroomPage.module.css";
 
 const MathChatroomPage = () => {
   const userTag = useSelector((state) => state.userTag);
+  const uniqueId = useSelector((state) => state.uniqueId);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -32,6 +33,7 @@ const MathChatroomPage = () => {
         type: MESSAGE_TYPE.connect,
         topic: TOPICS.math,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
     },
@@ -46,6 +48,7 @@ const MathChatroomPage = () => {
         type: MESSAGE_TYPE.disconnect,
         topic: TOPICS.math,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
       console.log("Disconnected");
@@ -65,6 +68,7 @@ const MathChatroomPage = () => {
       type: MESSAGE_TYPE.chat,
       topic: TOPICS.math,
       sender: userTag,
+      senderId: uniqueId,
       content: message,
     })
     .then(() => {
