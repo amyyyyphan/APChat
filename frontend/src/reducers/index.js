@@ -1,5 +1,6 @@
 const initialState = {
   userTag: null,
+  uniqueId: null,
   currentChatroom: null,
 };
   
@@ -10,6 +11,11 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         userTag: action.payload,
       };
+    case "SET_UNIQUE_ID":
+      return {
+        ...state,
+        uniqueId: action.payload,
+      }
     case "SET_CURRENT_CHATROOM":
       return {
         ...state,

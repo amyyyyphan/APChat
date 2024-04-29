@@ -13,6 +13,7 @@ import styles from "./ComputerScienceChatroomPage.module.css";
 
 const ComputerScienceChatroomPage = () => {
   const userTag = useSelector((state) => state.userTag);
+  const uniqueId = useSelector((state) => state.uniqueId);
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
 
@@ -32,6 +33,7 @@ const ComputerScienceChatroomPage = () => {
         type: MESSAGE_TYPE.connect,
         topic: TOPICS.computerScience,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
     },
@@ -46,6 +48,7 @@ const ComputerScienceChatroomPage = () => {
         type: MESSAGE_TYPE.disconnect,
         topic: TOPICS.computerScience,
         sender: userTag,
+        senderId: uniqueId,
         content: "",
       })
       console.log("Disconnected");
@@ -65,6 +68,7 @@ const ComputerScienceChatroomPage = () => {
       type: MESSAGE_TYPE.chat,
       topic: TOPICS.computerScience,
       sender: userTag,
+      senderId: uniqueId,
       content: message,
     })
     .then(() => {

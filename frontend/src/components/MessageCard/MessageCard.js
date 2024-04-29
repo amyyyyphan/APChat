@@ -4,13 +4,13 @@ import styles from "./MessageCard.module.css";
 import { MESSAGE_TYPE } from "../../constants";
 
 const MessageCard = ({message}) => {
-  const userTag = useSelector((state) => state.userTag);
+  const uniqueId = useSelector((state) => state.uniqueId);
 
   return (
     <div>
       {message.type === MESSAGE_TYPE.chat ? (
         <div>
-          {message.sender === userTag ? (
+          {message.senderId === uniqueId ? (
             <div className={styles.userMessageContainer}>
               <div className={styles.userMessageSender}>{message.sender}</div>
               <div className={styles.userMessageContent}>{message.content}</div>
