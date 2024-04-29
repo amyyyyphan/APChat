@@ -1,0 +1,35 @@
+version: '3'
+services:
+  zookeeper:
+    image: wurstmeister/zookeeper
+    ports:
+    - "2181:2181"
+  kafka:
+    image: wurstmeister/kafka
+    ports:
+    - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_CREATE_TOPICS: "computer-science-chat:1:1,engineering-chat:1:1,food-chat:1:1,math-chat:1:1,movies-chat:1:1,sports-chat:1:1"
+    depends_on:
+      - zookeeper
+  backend-rest-api:
+    build: ./server-api
+    ports:
+      - "8080:8080"
+    depends_on:
+      - kafka
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    depends_on:
+      - backend-rest-api
+  frontend:
+    build: ./frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
