@@ -14,7 +14,7 @@ public class ChatController {
     @Autowired
     private KafkaTemplate<String, Message> kafkaTemplate;
 
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "*")
     @PostMapping("/chat")
     public void sendMessage(@RequestBody Message message) {
         String topic = message.getTopic() + "-chat";
